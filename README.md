@@ -1,5 +1,7 @@
-#How to install django-kb
+# Installation
+django-kb requires [Django 2.0](https://www.djangoproject.com/)
 
-run python manage.py migrate
-run python manage.py makemigrations polls
-run python manage.py runserver host:port
+Run the following commands in a terminal window to setup and run django-kb:
+- python manage.py migrate
+- python manage.py makemigrations polls
+- python manage.py runserver host:port
