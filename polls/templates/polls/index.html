@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+    <head>
+        <title>Testing, attention please</title>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/index.css' %}">
+    </head>
+
+    <body>
+
+        <!-- Image & search bar centered block: -->
+        <!-- BLOCK START -->
+        <div class="front-elements">
+            <img id="logo" src="{% static 'images/swagg.png' %}" alt="Hitler rocks!"/>
+            <input id="searchbar" type="search" placeholder="Enter search terms" autofocus/>
+        </div>
+        <!-- BLOCK END --> 
+
+        {% if hot_articles %}
+            <ul>
+            {% for article in hot_articles %}
+            <li><a href="{% url 'detail' article.id %}">{{ article.name }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No articles to show.</p>
+        {% endif %}
+    </body>
+</html>

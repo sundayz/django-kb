@@ -1,0 +1,70 @@
+body {
+    background-image: url("../images/b48.png");
+    background-repeat: y;
+}
+
+/* For background blending */
+body:after {
+    opacity: 0.2;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: "";
+    background-repeat: repeat;
+    background: #ffedb5;
+}
+
+.front-elements {
+    position: relative;
+    height: 650px;
+    display: inline-block;
+    width: 100%;
+
+    /* Debug styles, for easier viewing of occupied div space */
+    /*
+        background-color: aliceblue;
+        border-style: solid;
+        border-width: 2px;
+        border-color: blue;
+    */
+}
+
+#logo {
+    position:absolute;
+    left:50%;
+    top: 40%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+#searchbar {
+    /* Removing the OS default input box appearance to use our own */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* Border styling */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: none;
+    background: #283b79;
+    color: #ffedb5;
+    opacity: 0.90;
+    outline: none;
+    text-align: center;
+
+    font-family: 'Fira Mono', monospace;
+
+    width: 450px;
+    font-size: 24px;
+    left:50%;
+    top: 90%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position:relative;
+}
