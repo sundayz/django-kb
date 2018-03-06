@@ -4,6 +4,7 @@ body {
 }
 
 /* For background blending */
+/*
 body:after {
     opacity: 0.2;
     height: 100%;
@@ -17,12 +18,16 @@ body:after {
     background-repeat: repeat;
     background: #ffedb5;
 }
+*/
 
 h1 {
     overflow: hidden;
+    margin-left: 10%;
 }
 
 #article-box {
+    margin-left: 10%;
+    margin-right: 10%;
     overflow: hidden;
     border-top: solid 1px gray;
     border-bottom: solid 1px gray;
@@ -30,6 +35,8 @@ h1 {
 
 /* Same as article box, but does not display top border */
 #comment-box {
+    margin-left: 10%;
+    margin-right: 10%;
     overflow: hidden;
     border-bottom: solid 1px gray;
 }
@@ -82,7 +89,7 @@ h1 {
 
 #virtual-footer-button {
     background-color: rgb(33, 118, 175);
-    border: none;
+    border: solid 1px black;
     color: white;
     padding: 15px 32px;
     text-align: center;
