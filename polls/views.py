@@ -13,6 +13,12 @@ from django.urls import reverse
 
 
 def index(request):
+    # GET request handling
+    if request.method == 'GET':
+        search = request.GET.get('search', None)
+        if search is not None:
+            print(search)
+    # CONTINUE
     hot_articles = Article.objects.order_by('-date_created')[:5]
     context = {'hot_articles': hot_articles}
     return render(request, 'polls/index.html', context)

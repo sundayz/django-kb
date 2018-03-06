@@ -15,7 +15,9 @@
         <!-- BLOCK START -->
         <div class="front-elements">
             <img id="logo" src="{% static 'images/swagg.png' %}" alt="Hitler rocks!"/>
-            <input id="searchbar" type="search" placeholder="Enter search terms" autofocus/>
+            <form type="get" action="." id="searchbar">
+                <input  id="searchbar" type="text" name="search"  placeholder="Search..." >
+            </form>
         </div>
         <!-- BLOCK END --> 
 
