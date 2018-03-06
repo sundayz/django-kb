@@ -1,12 +1,51 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% load static %}
 
-<form action="{% url 'vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
-</form>
+<html>
+    <head>
+        <title>Testing, attention please</title>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/detail.css' %}">
+    </head>
+
+    <body>
+        <h1>{{ article.name }}</h1>
+        <div id="article-box">
+            <div id="profile-box">
+                <h5>{{ article.author.user.username }}</h5>
+                <div id="avatar-box-op">
+                    <img id="profile-picture" src="{% static 'images/fire.png' %}" alt="Fire!" title="HARDCODED PIECE OF SHIT: FIX ME!!"/>
+                </div>
+                <h6>Posted on {{ article.date_created }}
+                    <br>Modified on {{ article.date_modified }}</h6>
+            </div>
+            <div id="article-description">
+                <p>{{ article.description|safe }}</p>
+            </div>
+        </div>
+        {% for comment in article.comment_set.all %}
+        <div id="comment-box">
+                <div id="profile-box">
+                    <h5>{{ comment.author }}</h5>
+                    {% if comment.author == article.author %}
+                        <div id="avatar-box-op">
+                    {% else %}
+                        <div id="avatar-box">
+                    {% endif %}
+                    <img id="profile-picture" src="{% static 'images/fire.png' %}" alt="Fire!" title="HARDCODED PIECE OF SHIT: FIX ME!!"/>
+                    </div> 
+                    <h6>Posted on {{ article.date_created }}
+                        <br>Modified on {{ article.date_modified }}</h6>
+                </div>
+                <div id="article-description">
+                    <p>{{ comment.comment|safe }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div id="virtual-footer">
+            <a id="virtual-footer-button" href="http://localhost:8000/">< Go back home</a>
+        </div>
+    </body>
+</html>

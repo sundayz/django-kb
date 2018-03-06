@@ -1,0 +1,98 @@
+body {
+    background-image: url("../images/b48.png");
+    background-repeat: y;
+}
+
+/* For background blending */
+body:after {
+    opacity: 0.2;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: "";
+    background-repeat: repeat;
+    background: #ffedb5;
+}
+
+h1 {
+    overflow: hidden;
+}
+
+#article-box {
+    overflow: hidden;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+}
+
+/* Same as article box, but does not display top border */
+#comment-box {
+    overflow: hidden;
+    border-bottom: solid 1px gray;
+}
+
+#profile-box {
+    text-align: center;
+    float: left;
+    margin-right: 40px;
+}
+
+#avatar-box {
+    margin-left: 40px;
+    height: 120px;
+    width: 120px;
+    border: solid black 1px;
+    text-align: center;
+}
+
+#avatar-box-op {
+    margin-left: 40px;
+    height: 120px;
+    width: 120px;
+    border: solid #42e5f4 2px;
+    text-align: center;
+}
+
+#profile-picture {
+    width: 120px;
+    height: 120px;
+}
+
+#article-description {
+    overflow: hidden;
+    width: 60%;
+    position: relative;
+    padding-left: 5px;
+}
+
+#comments-box {
+    border: solid 1px black;
+}
+
+/* Almost footer, but not quite */
+#virtual-footer {
+    padding-top: 60px;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+}
+
+#virtual-footer-button {
+    background-color: rgb(33, 118, 175);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#virtual-footer-button:hover {
+    background-color: darkgrey;
+}

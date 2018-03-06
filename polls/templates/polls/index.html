@@ -19,14 +19,20 @@
         </div>
         <!-- BLOCK END --> 
 
-        {% if hot_articles %}
-            <ul>
-            {% for article in hot_articles %}
-            <li><a href="{% url 'detail' article.id %}">{{ article.name }}</a></li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p>No articles to show.</p>
-        {% endif %}
+        <div class="hot-articles">
+            <div id="title-box">
+                    <h3>Hot articles</h3>
+                    <img id="fire-icon" src="{% static 'images/fire.png' %}" alt="Fire!"/>
+            </div>
+            {% if hot_articles %}
+                <ul>
+                {% for article in hot_articles|slice:":10" %}
+                    <li><a href="{% url 'detail' article.id %}">{{ article.name }}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No articles to show.</p>
+            {% endif %}
+        </div>
     </body>
 </html>

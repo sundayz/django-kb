@@ -23,20 +23,12 @@ body:after {
     height: 650px;
     display: inline-block;
     width: 100%;
-
-    /* Debug styles, for easier viewing of occupied div space */
-    /*
-        background-color: aliceblue;
-        border-style: solid;
-        border-width: 2px;
-        border-color: blue;
-    */
 }
 
 #logo {
     position:absolute;
     left:50%;
-    top: 40%;
+    top: 25%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
 }
@@ -53,18 +45,40 @@ body:after {
     border-radius: 5px;
     border: none;
     background: #283b79;
-    color: #ffedb5;
+    color: #f8f4ea;
     opacity: 0.90;
     outline: none;
     text-align: center;
+
+    /* Shadow */
+    box-shadow: 2px 2px black;
 
     font-family: 'Fira Mono', monospace;
 
     width: 450px;
     font-size: 24px;
     left:50%;
-    top: 90%;
+    top: 75%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     position:relative;
+}
+
+.hot-articles {
+    width: 100%;
+    border-top: double;
+}
+
+#title-box {
+    display: inline;
+}
+
+h3 {
+    display: inline;
+}
+
+#fire-icon {
+    overflow: hidden;
+    height: 24px;
+    width: 24px;
 }
