@@ -4,21 +4,19 @@ body {
 }
 
 /* For background blending */
-/*
 body:after {
     opacity: 0.2;
     height: 100%;
     width: 100%;
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
     content: "";
     background-repeat: repeat;
-    background: #ffedb5;
+    background: #dceeff;
 }
-*/
 
 .front-elements {
     position: relative;
