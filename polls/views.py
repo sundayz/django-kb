@@ -7,7 +7,7 @@ from django.http import Http404
 from django.http import HttpResponse, HttpResponseRedirect
 
 # For the Question and Choice classes
-from .models import Article, Category, Comment
+from .models import Article, Category, Comment, UserProfile
 
 from django.urls import reverse
 
@@ -20,7 +20,8 @@ def index(request):
 def detail(request, article_id):
     try:
         article = Article.objects.get(pk=article_id)
+        userprofile = UserProfile.objects.get(pk=article.author.id)
+        comment = Comment.objects.get(pk=article_id)
     except Article.DoesNotExist:
         raise Http404("Article does not exist")
-    return render(request, 'polls/detail.html', {'article': article})
-
+    return render(request, 'polls/detail.html', {'article': article, 'userprofile':userprofile, 'comment': comment})

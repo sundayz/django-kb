@@ -4,14 +4,21 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+class UserProfile(models.Model):
+    user   = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField()
+    # avatar = models.ImageField(upload_to = 'media/', default = 'media/e/no-img.jpg')
+
 # Category table model
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    class Meta:
+        verbose_name_plural="Categories"
 
 # Article table model
 class Article(models.Model):
     name = models.CharField(max_length=255)
-    description = models.CharField(max_length=3072)
+    description = models.TextField(max_length=3072)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     date_created = models.DateTimeField('date published')
     date_modified = models.DateTimeField('last modified')
