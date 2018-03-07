@@ -6,19 +6,13 @@ from django.http import Http404
 # For detail, results & votes templates
 from django.http import HttpResponse, HttpResponseRedirect
 
-# For the Question and Choice classes
+from django.shortcuts import redirect
 from .models import Article, Category, Comment, UserProfile
 
 from django.urls import reverse
 
 
 def index(request):
-    # GET request handling
-    if request.method == 'GET':
-        search = request.GET.get('search', None)
-        if search is not None:
-            print(search)
-    # CONTINUE
     hot_articles = Article.objects.order_by('-date_created')[:5]
     context = {'hot_articles': hot_articles}
     return render(request, 'polls/index.html', context)
@@ -31,3 +25,16 @@ def detail(request, article_id):
     except Article.DoesNotExist:
         raise Http404("Article does not exist")
     return render(request, 'polls/detail.html', {'article': article, 'userprofile':userprofile, 'comment': comment})
+
+def search(request):
+    # GET request handling
+    if request.method == 'GET':
+        search = request.GET.get('search', None)
+        if search is None or search == "":
+            return redirect("index")
+    # CONTINUE
+    article_results = Article.objects.filter(name__icontains=search)
+    # ask sam ^^^^^
+    comment_results = Comment.objects.filter(comment__icontains=search)
+    context = {'article_results': article_results, 'comment_results': comment_results, 'search': search}
+    return render(request, 'polls/search.html', context)

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load highlighter %}
+
+<html>
+    <head>
+        <title>Hivemind –– {{ article.name}}</title>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/search.css' %}">
+    </head>
+
+    <body>
+        <!-- Article results listing: -->
+        {% if comment_results or article_results %}
+            {% for article in article_results %}
+                <a href="">
+                    <div id="article-box">
+                        <div id="profile-box">
+                            <h5>{{ article.author }}</h5>
+                            <div id="avatar-box">
+                                <img id="profile-picture" src="{% static 'images/fire.png' %}" alt="Fire!" title="HARDCODED PIECE OF SHIT: FIX ME!!"/>
+                            </div> 
+                            <h6>Posted on {{ article.date_created }}
+                            <br>Modified on {{ article.date_modified }}</h6>
+                        </div>
+                        <div id="article-description">
+                            <p>{{ article.description|highlighter:search|safe }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            <!-- Comment results listing: -->
+            {% for comment in comment_results %}
+                <a href="">
+                    <div id="article-box">
+                        <div id="profile-box">
+                            <h5>{{ comment.author }}</h5>
+                            <div id="avatar-box">
+                                <img id="profile-picture" src="{% static 'images/fire.png' %}" alt="Fire!" title="HARDCODED PIECE OF SHIT: FIX ME!!"/>
+                            </div> 
+                            <h6>Posted on {{ comment.date_created }}
+                            <br>Modified on {{ comment.date_modified }}</h6>
+                        </div>
+                        <div id="article-description">
+                            <p>{{ comment.comment|highlighter:search|safe }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+                <h2>No results</h2>
+        {% endif %}
+
+        <!-- Virtual footer: The div containing the 'GO BACK HOME' button -->
+        <div id="virtual-footer">
+            <a id="virtual-footer-button" href="http://localhost:8000/">< GO BACK HOME</a>
+        </div>
+    </body>
+</html>

@@ -8,3 +8,5 @@ jobel_kb/__pycache__/
 db\.sqlite3
 
 polls/migrations/
+
+polls/templatetags/__pycache__/
