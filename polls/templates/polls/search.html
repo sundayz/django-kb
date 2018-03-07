@@ -12,8 +12,8 @@
 
     <body>
         <!-- Article results listing: -->
-        {% if comment_results or article_results %}
-            {% for article in article_results %}
+        {% if comments or articles %}
+            {% for article in articles %}
                 <a href="">
                     <div id="article-box">
                         <div id="profile-box">
@@ -31,7 +31,7 @@
                 </a>
             {% endfor %}
             <!-- Comment results listing: -->
-            {% for comment in comment_results %}
+            {% for comment in comments %}
                 <a href="">
                     <div id="article-box">
                         <div id="profile-box">
